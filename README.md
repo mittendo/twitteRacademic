@@ -46,6 +46,7 @@ bearer_token <- "Put Your Bearer-Token in here"
 
 # Create .Rprofile data with Your Bearer-Token
 twitterBearerToken <- "Put Your Bearer Token in here".# in .Rprofile = twitterBearerToken
+bearer_token <- twitterBearerToken
 
 ```
 
@@ -53,7 +54,7 @@ twitterBearerToken <- "Put Your Bearer Token in here".# in .Rprofile = twitterBe
 # query the term
 # Please check out the different options that Twitter provides for "high-performance" 
 # research/queries.
-query <- '#OCCUPYWALLSTREET' 
+query <- '#OCCUPYWALLSTREET lang:de' 
 ```
 
 
