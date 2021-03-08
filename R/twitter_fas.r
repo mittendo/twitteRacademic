@@ -23,6 +23,7 @@
 #' enddate <- "2012-07-15T00:00:01Z"
 #' occupy_search <- twitter_fas(query, startdate, enddate, bearer_token)
 #' occupy_tweets <- occupy_search$data
+#' hist(occupy_tweets$public_metrics$reply_count)
 
 twitter_fas <- function(query,
                         start,
