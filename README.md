@@ -35,7 +35,11 @@ Some sample code has been taken from twitter development team (https://github.co
 We welcome pull requests that add meaningful additions to this code.
 
 
+## Citation 
 
+Please cite this package, if you have used it in your works: 
+
+`citation("twitteRacademic")`
 
 ## License
 
