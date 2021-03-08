@@ -22,8 +22,9 @@ To be able to use the package in principle, some requirements are to be fulfille
 
 The current/last version of the package can be obtained from the corresponding repository. To install the package directly from GitHub, you can use install_github() from the devtools package:
 
-library(remotes)
-install_github("mittendo/twitteRacademic")
+`library(remotes)
+
+install_github("mittendo/twitteRacademic")`
 
 
 
@@ -35,7 +36,11 @@ Some sample code has been taken from twitter development team (https://github.co
 We welcome pull requests that add meaningful additions to this code.
 
 
+## Citation 
 
+Please cite this package, if you have used it in your works: 
+
+`citation("twitteRacademic")`
 
 ## License
 
