@@ -93,6 +93,9 @@ library(twitteRacademic)
 # Create .Rprofile data with your Bearer-Token
   twitterBearerToken <- "Put your Bearer Token in here".#in .Rprofile = twitterBearerToken
 
+# Create the Bearer-Token from .Rprofile
+  bearer_token <- twitterBearerToken
+
 ```
 
 ```{r eval=TRUE, echo = TRUE}
