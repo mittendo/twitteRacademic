@@ -22,8 +22,9 @@ To be able to use the package in principle, some requirements are to be fulfille
 
 The current/last version of the package can be obtained from the corresponding repository. To install the package directly from GitHub, you can use install_github() from the devtools package:
 
-library(remotes)
-install_github("mittendo/twitteRacademic")
+`library(remotes)
+
+install_github("mittendo/twitteRacademic")`
 
 
 
