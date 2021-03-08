@@ -1,0 +1,14 @@
+citHeader("To cite twitteRacademic in publications use:")
+
+citEntry(
+  entry    = "Manual",
+  title    = "twitteRacadmic - Use R to retrieve Information from Twitter API 2.0 academic research track",
+  author   = c(person("Volker", "Mittendorf", role="aut", email = "mittendo@uni-wuppertal.de"),
+  person("André", "Schmale", role = "aut")),
+  year     = 2021,
+  address = "Wuppertal, Germany",
+  url      = "https://github.com/mittendo/twitteRacademic",
+  textVersion = paste(
+
+  )
+)
