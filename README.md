@@ -1,10 +1,10 @@
 
-# Package *twitterAcademics*
+# Package *twitterAcademic*
 
-The package *twitterAcademics* is intended for academics who have an academic account on *Twitter*.
+The package *twitterAcademic* is intended for academics who have an academic account on *Twitter*.
 This package enables the integration of the Academic Research product track of Twitter, which provides free access to the full archive search and other v2 endpoints. It provides a feature for circumstantial use of the *full-archive search* call, which is used to access the historical API. For suggestions, questions, ideas, improvements or reporting bugs, please contact the authors of the package. 
 
-More information on *twitterAcademics* is available on the project homepage.        
+More information on *twitterAcademic* is available on the project homepage.        
 
 
 
@@ -22,17 +22,22 @@ To be able to use the package in principle, some requirements are to be fulfille
 
 The current/last version of the package can be obtained from the corresponding repository. To install the package directly from GitHub, you can use install_github() from the devtools package:
 
-
-install.packages("twitterAcademics", repo=c(getOption("repos"), "[[https://github.com/mittendo]], [[https://github.com/omhs]]"))
+library(remotes)
+install_github("mittendo/twitteRacademic")
 
 
 
 
 ## Contributing
 
+Some sample code has been taken from twitter development team (https://github.com/twitterdev/Twitter-API-v2-sample-code/blob/master/Full-Archive-Search/full-archive-search.r).
+
+We welcome pull requests that add meaningful additions to this code.
+
 
 
 
 ## License
 
+GPL-3
 
