@@ -13,9 +13,11 @@
 #' @export
 #'
 #' @examples
-#' source("../.Rprofile")
+#' source("~/.Rprofile")
 #' bearer_token <- twitterBearerToken
-#' # Your bearer token. Application at developer.twitter.com required
+#' # Your bearer token. Application at developer.twitter.com required. You can store
+#' # your bearer token in your .Rprofile in your home directory, creating following entry:
+#' # twitterBearerToken <- "replace with your token"
 #' query <- "#OccupyWallStreet"
 #' startdate <- "2012-07-12T00:00:01Z"
 #' enddate <- "2012-07-15T00:00:01Z"
@@ -89,7 +91,7 @@ twitter_fas <- function(query,
         simplifyDataFrame = TRUE
       )
     )
-  if(fas_body$title =="Unauthorized") stop("Bearer token not valid")
+  if(exists("fas_body$title")) stop( fas_body$title)
 
   df <- if(exists("fas_body")) dplyr::bind_rows(df, fas_body$data)
   df_tweets <- if(exists("fas_body")) dplyr::bind_rows(df_tweets, fas_body$includes$tweets)
