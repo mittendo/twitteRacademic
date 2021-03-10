@@ -124,8 +124,16 @@ twitter_fas <- function(query,
 
   }
 }
-  return( list(data = df,
-               includes_tweets = df_tweets,
+
+  # Postprocessing of data
+  df_polls <- make_tidyrespoll(df_polls)
+  df_users <- make_tidyresusers(df_users)
+  df <- make_tidyrestweets(df)
+  df_tweets <- make_tidyrestweets(df_tweets)
+  # Return resource
+
+    return( list(data = df,
+               includes_retweets = df_tweets,
                includes_media = df_media,
                includes_places = df_places,
                includes_users = df_users,
