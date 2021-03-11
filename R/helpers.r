@@ -3,11 +3,12 @@
 #' @importFrom magrittr %>%
 
 tweetbindcol <- function(.data, subdf) {
+  # remark to developer: dplyr-programming: one need to @importFrom :=
+  # to make this code more tidy
   nametest <- deparse(substitute(subdf))
   test <- .data[[substitute(subdf)]]  %>% dplyr::rename_with(~ paste0(nametest , "_", .x))
 
   # rename cols with df-name
-  # test <- test %>% rename_with(~ paste0(. , "_", .x))
    .data <- .data %>% dplyr::select(- {{subdf}})
   .data <- .data %>%
     dplyr::bind_cols(test)
@@ -16,7 +17,9 @@ tweetbindcol <- function(.data, subdf) {
 
 #' @importFrom rlang .data
 unnestcol <- function(.data, item, ...){
-
+  id <- NULL
+  # remark to developer: dplyr-programming: one need to @importFrom :=
+  # to make this code more tidy and readable
   nametest <- deparse(substitute(.data))
 
   newidname <- paste0("parent", "_id") #' muss noch angepasst werden und durch den Namen der übergeordneten Tabelle ersetzt werden
@@ -33,7 +36,8 @@ unnestcol <- function(.data, item, ...){
 ## Helpers for Postprocessing of resource data
 #' @importFrom rlang .data
 check_col <- function(.data, col) {
-
+  # probably it is better to use "col %in% colnames(.data)"
+  # or assertthat::has_name(.data, col) for the tidy way
   test <- sum(names(.data)==col) > 0
 
   return(test)
@@ -42,7 +46,15 @@ check_col <- function(.data, col) {
 #' @importFrom rlang .data
 #' @importFrom magrittr %>%
 make_tidyresusers <- function(.data) {
+  # preventing R CMD check from complaining on global variables
 
+  created_at <- entities <- entities_description <- NULL
+  entities_description_hashtags <- entities_description_cashtags <- NULL
+  entities_description_mentions <- entities_description_urls <- NULL
+  entities_url_urls <- public_metrics <- NULL
+
+  # remark to developer: it may possible to put the complicated if(check)
+  # structure into check_col function...
   if(check_col(.data, "public_metrics")) .data <- .data %>%
       tweetbindcol(public_metrics) %>% dplyr::rename_with(~ paste0("user_", .x), dplyr::starts_with("public"))
   .data <- .data %>% dplyr::rename(user_created_at = created_at)
@@ -104,6 +116,14 @@ return(.data)
 #' @importFrom rlang .data
 #' @importFrom magrittr %>%
 make_tidyrestweets <- function(.data){
+  public_metrics <- entities <- attachments <-
+    geo <- geo_coordinates <-
+    geo_coordinates_coordinates <- entities_hashtags <-
+    entities_cashtags <- entities_mentions <-
+    entities_annotations <- entities_urls <-
+    domain <- entity <-
+    attachments_media_keys <- attachments_poll_ids <- NULL
+
   # postprocess tweet-data
   # bind attached data frames
   if(check_col(.data, "public_metrics")) .data <- .data %>%
@@ -203,9 +223,7 @@ make_tidyrestweets <- function(.data){
                 annotations = annotations,
                 referenced_tweets = referenced_tweets,
                 context_annotations = context_annotations,
-    #            attachments_media_keys = attachments_media_keys,
                 urls = urls)
-            #    geo_coordinates = geo_coordinates)
      return(df)
 
 
