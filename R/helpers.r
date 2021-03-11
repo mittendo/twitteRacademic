@@ -192,7 +192,9 @@ make_tidyrestweets <- function(.data){
   }
 
 
-  tweets <- .data %>% dplyr::select(- dplyr::starts_with("entities"), -referenced_tweets, -context_annotations)
+  tweets <- .data %>% dplyr::select(- dplyr::starts_with("entities"),
+                                    - dplyr::starts_with("referenced_tweets"),
+                                    - dplyr::starts_with("context"))
 
 
      df <- list(tweets = tweets,
