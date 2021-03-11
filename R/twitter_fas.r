@@ -129,11 +129,11 @@ twitter_fas <- function(query,
   df_polls <- make_tidyrespoll(df_polls)
   df_users <- make_tidyresusers(df_users)
   df <- make_tidyrestweets(df)
-  df_tweets <- make_tidyrestweets(df_tweets)
+  df_retweeted <- make_tidyrestweets(df_tweets)
   # Return resource
 
-    return( list(data = df,
-               includes_retweets = df_tweets,
+    return( list(tweets = df,
+               includes_retweeted = df_retweeted,
                includes_media = df_media,
                includes_places = df_places,
                includes_users = df_users,
