@@ -5,10 +5,10 @@ Version: 0.1.0
 Author: Volker Mittedorf, André Schmale
 Maintainer: Volker Mittendorf <mittendo@uni-wuppertal.de>
 Description: Twitter academic search (full search) with API 2.0. 
-License: GPL-3
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
-Imports: dplyr, httr, stringr, tibble, magrittr
+Imports: dplyr, httr, stringr, tibble, magrittr, tidyr, tidyselect, rlang, purrr
 BugReports: https://github.com/mittendo/twitteRacademic/issues
 URL: https://github.com/mittendo/twitteRacademic
