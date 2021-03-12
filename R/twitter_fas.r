@@ -15,13 +15,15 @@
 #' @examples
 #'
 #' \dontrun{
-#' bearer_token <- readline("Please enter your bearer_token")
-#' # Your bearer token. Application at developer.twitter.com required. You can store
-#' # your bearer token in your .Rprofile in your home directory, creating following entry:
-#' # twitterBearerToken <- "replace with your token"
+#'
+#' # You need to provide your bearer token. Application at developer.twitter.com required. You can store
+#' # your bearer token in your .Rprofile in your home directory, creating an entry like:
+#' # twitterBearerToken = "Your Token"
+#'
 #' query <- "#OccupyWallStreet"
 #' startdate <- "2012-07-12T00:00:01Z"
 #' enddate <- "2012-07-15T00:00:01Z"
+#' bearer_token <- readline("Please enter your bearer_token")
 #' occupy_search <- twitter_fas(query, startdate, enddate, bearer_token)
 #' occupy_tweets <- occupy_search$tweets$tweets
 #' hist(occupy_tweets$public_metrics_reply_count)
