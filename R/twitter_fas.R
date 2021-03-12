@@ -9,15 +9,40 @@
 #' @param bearer_token Developer Token for authorization to Academic Project. An application at developer.twitter.com is required.
 #' @param max_results The Twitter api retrieves a maximum of 500 tweets per request.
 #'                    This function  defaults to the maximum of 500, but can be lowered by setting this argument.
-#' @return List of Data Frames
+#' @return A ressource. Actually an array of data frames (tibbles),
+#' consisting of different entities (tweets and linked entities like
+#' users, media etc.). Each entity consists of different sets of additional
+#' information like annotations, hashtags etc.:
+#' \describe{
+#' \item{tweets:}{Tweets retrieved by your query as well as additional infomation
+#' found within these tweets, e.g.: hashtags, cashtags,
+#' mentions, annotations, urls and referenced tweets (cf. includes_retweets).}
+#' \item{includes_retweets:}{Referenced tweets with additional information,
+#' similar to those information found in tweets.}
+#' \item{includes_media:}{Media referenced in the retrieved set of tweets.}
+#' \item{includes_places:}{Places mentioned in the retrieved set of tweets.}
+#' \item{includes_users:}{Information about authors and people mentioned in
+#' tweets.}
+#' \item{includes_polls:}{Polls, which are sent with the tweets together with
+#' the different options, which were asked in these polls.}
+#' \item{errors:}{A tibble with informations on entities and keys, on which no
+#' information could be retrieved (withheld tweets, suspended users, non-public
+#' tweets etc.)}
+#' }
+#' The different entities each have unique ids or keys by which they
+#' are referenced. Additional tables have an parent_id key, by which these
+#' entries can be linked to their respective entity.
+#'
 #' @export
 #'
 #' @examples
 #'
 #' \dontrun{
 #'
-#' # You need to provide your bearer token. Application at developer.twitter.com required. You can store
-#' # your bearer token in your .Rprofile in your home directory, creating an entry like:
+#' # You need to provide your bearer token.
+#' # Application at developer.twitter.com required.
+#' # You can store your bearer token in your .Rprofile in your home directory,
+#' # creating an entry like:
 #' # twitterBearerToken = "Your Token"
 #'
 #' query <- "#OccupyWallStreet"

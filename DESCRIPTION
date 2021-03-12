@@ -4,8 +4,8 @@ Title: Twitter Full Academic Search (Api V2)
 Version: 0.1.0
 Authors@R: c(person("Volker", "Mittendorf", role = c("aut", "cre"),
                      email = "mittendo@uni-wuppertal.de"),
-              person("André", "Schmale", role = "aut"
-                     email = "schmale@uni-wuppertal.de")
+              person("André", "Schmale", role = "aut",
+                     email = "schmale@uni-wuppertal.de"))
 Maintainer: Volker Mittendorf <mittendo@uni-wuppertal.de>
 Description: Twitter academic search (full search) with API 2.0. 
 License: GPL-3 + file LICENSE
@@ -15,3 +15,5 @@ RoxygenNote: 7.1.1
 Imports: dplyr, httr, stringr, tibble, magrittr, tidyr, tidyselect, rlang, purrr
 BugReports: https://github.com/mittendo/twitteRacademic/issues
 URL: https://github.com/mittendo/twitteRacademic
+Depends: 
+    R (>= 2.10)
