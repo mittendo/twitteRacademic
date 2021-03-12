@@ -13,8 +13,9 @@
 #' @export
 #'
 #' @examples
-#' source("~/.Rprofile")
-#' bearer_token <- twitterBearerToken
+#'
+#' \dontrun{
+#' bearer_token <- readline("Please enter your bearer_token")
 #' # Your bearer token. Application at developer.twitter.com required. You can store
 #' # your bearer token in your .Rprofile in your home directory, creating following entry:
 #' # twitterBearerToken <- "replace with your token"
@@ -24,6 +25,7 @@
 #' occupy_search <- twitter_fas(query, startdate, enddate, bearer_token)
 #' occupy_tweets <- occupy_search$data$tweets
 #' hist(occupy_tweets$public_metrics_reply_count)
+#' }
 
 twitter_fas <- function(query,
                         start,

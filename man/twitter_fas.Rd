@@ -25,8 +25,9 @@ List of Data Frames
 twitter_fas - Full Academic Search in Twitter Academic Research Track (API 2.0)
 }
 \examples{
-source("~/.Rprofile")
-bearer_token <- twitterBearerToken
+
+\dontrun{
+bearer_token <- readline("Please enter your bearer_token")
 # Your bearer token. Application at developer.twitter.com required. You can store
 # your bearer token in your .Rprofile in your home directory, creating following entry:
 # twitterBearerToken <- "replace with your token"
@@ -36,4 +37,5 @@ enddate <- "2012-07-15T00:00:01Z"
 occupy_search <- twitter_fas(query, startdate, enddate, bearer_token)
 occupy_tweets <- occupy_search$data$tweets
 hist(occupy_tweets$public_metrics_reply_count)
+}
 }
