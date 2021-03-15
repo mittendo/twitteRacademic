@@ -12,7 +12,7 @@ License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
-Imports: dplyr, httr, stringr, tibble, magrittr, tidyr, tidyselect, rlang, purrr
+Imports: dplyr, httr, stringr, tibble, magrittr, tidyr, tidyselect, rlang, purrr, lubridate
 BugReports: https://github.com/mittendo/twitteRacademic/issues
 URL: https://github.com/mittendo/twitteRacademic
 Depends: 
