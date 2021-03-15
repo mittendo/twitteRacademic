@@ -9,6 +9,8 @@
 #' @param bearer_token Developer Token for authorization to Academic Project. An application at developer.twitter.com is required.
 #' @param max_results The Twitter api retrieves a maximum of 500 tweets per request.
 #'                    This function  defaults to the maximum of 500, but can be lowered by setting this argument.
+#' @param pause Pause requests, because twitter allows only 300 requests per 15 minutes.
+#'              Standard is 250 requests per 15 minutes.
 #' @return A ressource. Actually an array of data frames (tibbles),
 #' consisting of different entities (tweets and linked entities like
 #' users, media etc.). Each entity consists of different sets of additional
@@ -29,7 +31,7 @@
 #' information could be retrieved (withheld tweets, suspended users, non-public
 #' tweets etc.)}
 #' }
-#' The different entities each have unique ids or keys by which they
+#' The different entitie´s each have unique ids or keys by which they
 #' are referenced. Additional tables have an parent_id key, by which these
 #' entries can be linked to their respective entity.
 #'
@@ -58,7 +60,8 @@ twitter_fas <- function(query,
                         start,
                         end,
                         bearer_token,
-                        max_results = 500
+                        max_results = 500,
+                        pause = 250
                       #  tweet_fields_attachments = TRUE,
                        # tweet_fields_author = TRUE,
                         #tweet_fields_context = TRUE
@@ -132,7 +135,7 @@ twitter_fas <- function(query,
   df_errors <- if(exists("fas_body")) dplyr::bind_rows(df_errors, fas_body$errors)
 
 
-  if(count<250)
+  if(count<pause)
     {
     count <- count+1
   }   else
