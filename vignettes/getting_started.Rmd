@@ -47,7 +47,7 @@ The current/development version of the package can be obtained from the correspo
 
 
 ```{r eval=FALSE}
-remotes::install_github("mittendo/twitteRacademic")
+devtools::install_github("mittendo/twitteRacademic", build_vignettes = TRUE)
 ```
 
 

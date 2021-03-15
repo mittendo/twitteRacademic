@@ -22,7 +22,8 @@ Imports:
     tidyselect, 
     rlang, 
     purrr, 
-    lubridate
+    lubridate,
+    rtweet
 BugReports: https://github.com/mittendo/twitteRacademic/issues
 URL: https://github.com/mittendo/twitteRacademic
 Depends: 
@@ -30,6 +31,5 @@ Depends:
 Suggests: 
     knitr,
     rmarkdown,
-    rtweet, 
     ggplot2
 VignetteBuilder: knitr
