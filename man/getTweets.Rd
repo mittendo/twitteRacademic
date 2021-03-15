@@ -4,10 +4,25 @@
 \alias{getTweets}
 \title{Get Dataframe from resource}
 \usage{
-getTweets(.data, tz = "UTC")
+getTweets(
+  .data,
+  withUsers = TRUE,
+  withRetweeted = TRUE,
+  withMedia = TRUE,
+  tz = "UTC"
+)
 }
 \arguments{
-\item{.data}{Resource, retrieved by \code{twitter_fas()}}
+\item{.data}{Resource, retrieved by \code{twitter_fas()}.}
+
+\item{withUsers}{(Logical) if true, add information about author
+and the authors of referred tweets.}
+
+\item{withRetweeted}{(Logical) if true, add information about the retweeted
+or cited tweet.}
+
+\item{withMedia}{(Logical) if true, add information about media included
+within the tweet.}
 
 \item{tz}{Format dates with time zone}
 }

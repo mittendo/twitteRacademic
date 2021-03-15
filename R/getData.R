@@ -6,7 +6,13 @@
 #' @importFrom lubridate as_date
 #' @importFrom lubridate as_datetime
 #' @importFrom magrittr %>%
-#' @param .data Resource, retrieved by \code{twitter_fas()}
+#' @param .data Resource, retrieved by \code{twitter_fas()}.
+#' @param withUsers (Logical) if true, add information about author
+#' and the authors of referred tweets.
+#' @param withRetweeted (Logical) if true, add information about the retweeted
+#' or cited tweet.
+#' @param withMedia (Logical) if true, add information about media included
+#' within the tweet.
 #' @param tz Format dates with time zone
 #' @return A Data Frame with Tweet data from Resource
 #'
@@ -17,10 +23,19 @@
 #' head(tweets)
 #'
 #'
-getTweets <- function(.data, tz="UTC"){
+getTweets <- function(.data,
+                      withUsers=TRUE,
+                      withRetweeted=TRUE,
+                      withMedia=TRUE,
+                      tz="UTC"){
   created_at <- NULL
   tweets <- .data$tweets$tweets
   tweets <- tweets %>% mutate(created_at = as_datetime(created_at, tz=tz))
+  if(withUsers == TRUE) tweets <- withUsers(.data, tweets)
+
+  if(withRetweeted == TRUE) tweets <- withRetweeted(.data, tweets)
+
+  if(withMedia == TRUE) tweets <- withMedia(.data, tweets)
 
   return(tweets)
 }

@@ -1,7 +1,7 @@
 Package: twitteRacademic
 Type: Package
 Title: Twitter Full Academic Search (Api V2)
-Version: 0.1.0
+Version: 0.1.2
 Authors@R: c(person("Volker", "Mittendorf", role = c("aut", "cre"),
                      email = "mittendo@uni-wuppertal.de"),
               person("André", "Schmale", role = "aut",
@@ -12,8 +12,24 @@ License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
-Imports: dplyr, httr, stringr, tibble, magrittr, tidyr, tidyselect, rlang, purrr, lubridate
+Imports: 
+    dplyr, 
+    httr, 
+    stringr, 
+    tibble, 
+    magrittr, 
+    tidyr, 
+    tidyselect, 
+    rlang, 
+    purrr, 
+    lubridate
 BugReports: https://github.com/mittendo/twitteRacademic/issues
 URL: https://github.com/mittendo/twitteRacademic
 Depends: 
     R (>= 2.10)
+Suggests: 
+    knitr,
+    rmarkdown,
+    rtweet, 
+    ggplot2
+VignetteBuilder: knitr

@@ -1,0 +1,119 @@
+---
+title: "Getting Started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, echo=FALSE}
+library(twitteRacademic)
+```
+
+
+# Package *twitteRacademic*
+
+The package *twitteRacademic* is intended for academics who have an academic account on *Twitter*.
+This package enables the integration of the Academic Research product track of Twitter, which provides free access to the full-archive search and other V2 endpoints. It provides a feature for circumstantial use of the *full-archive search* call, which is used to access the historical API. For suggestions, questions, ideas, improvements or reporting bugs, please contact the authors of the package. 
+
+More information on *twitteRacademic* is available on the project homepage.        
+
+
+
+#  Prerequisites
+
+To be able to use the package in principle, some requirements are to be fulfilled, which are only mentioned here. For an implementation of these please visit the homepages of the infrastructure used here.  What you need to have basically set up to use the *twitteRacademic* package:   
+
+1. It is necessary that you register as a developer at [*Twitter Developer*](https://developer.twitter.com).
+2. You also need to submit your research project to *Twitter* and get approved for use by proving your institutional affiliation, [here](https://developer.twitter.com/en/solutions/academic-research).
+3. After successful activation you have to create an app on *Twitter Developer* and assign it to your [academic project](https://developer.twitter.com/en/portal/projects).
+4. Make sure that in the app permissions your app has the "Read, write and access Direct Messages" rights at level 3.
+5. Finally, it is necessary to generate a ['Bearer-Token'](https://developer.twitter.com/en/portal/projects) which will serve as a key for your access. 
+
+For a detailed description of each step to implement an app in Twitter, please visit the pages of the links provided above.
+
+
+## Installation
+
+The current/development version of the package can be obtained from the corresponding repository. To install the package directly from GitHub, you can use install_github() from the devtools package:
+
+
+```{r eval=FALSE}
+remotes::install_github("mittendo/twitteRacademic")
+```
+
+
+
+## Contributing
+
+For suggestions, questions, ideas, improvements or reporting bugs, please contact the authors of the package [mittendo@uni-wuppertal.de; schmale@uni-wuppertal.de].
+
+
+# Case Study
+
+
+
+
+```{r eval=FALSE}
+# load package
+library(twitteRacademic)
+
+# Replace the bearer token below with your bearer key
+  bearer_token <- "Insert your bearer-token here"
+
+# OR
+
+# Create .Rprofile data with Your Bearer-Token
+  twitterBearerToken <- "Insert your bearer_token  here".#in .Rprofile = twitterBearerToken
+
+```
+
+```{r  eval=FALSE, echo = TRUE}
+# Please check out the different options that Twitter provides for "high-performance" 
+# research/queries.
+
+# Query the term you are looking for here
+query <- '#cducsubt' 
+
+
+# Define the starting point of Your research here
+start <-  '2021-03-11T00:00:01Z'
+# Define the end point of Your research here
+end <- '2021-03-12T00:00:01Z'
+
+
+# run the query
+data <- twitter_fas(query, start, end, bearer_token)
+
+
+```
+
+Here we use the dataset example: 
+```{r eval=TRUE, echo = TRUE}
+library(twitteRacademic)
+library(rtweet)
+
+data("cducsuTweets")
+# show tweets in dataframe
+tweets <- cducsuTweets$tweets$tweets
+
+# plot timerow
+ts_plot(tweets, "hours") +
+  theme_minimal() +
+  theme(plot.title = element_text(face = "bold")) +
+  labs(x = "Time", y = "Frequency Tweets",
+       caption = "\nSource: Data Collected from Twitter with TwitteRacademic") 
+
+
+```
+
+
+
