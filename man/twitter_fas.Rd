@@ -4,7 +4,7 @@
 \alias{twitter_fas}
 \title{twitter_fas - Full Academic Search in Twitter Academic Research Track (API 2.0)}
 \usage{
-twitter_fas(query, start, end, bearer_token, max_results = 500)
+twitter_fas(query, start, end, bearer_token, max_results = 500, pause = 250)
 }
 \arguments{
 \item{query}{String to search for. Check https://developer.twitter.com/en/docs/twitter-api/tweets/search/api-reference/get-tweets-search-all for further details.}
@@ -17,6 +17,9 @@ twitter_fas(query, start, end, bearer_token, max_results = 500)
 
 \item{max_results}{The Twitter api retrieves a maximum of 500 tweets per request.
 This function  defaults to the maximum of 500, but can be lowered by setting this argument.}
+
+\item{pause}{Pause requests, because twitter allows only 300 requests per 15 minutes.
+Standard is 250 requests per 15 minutes.}
 }
 \value{
 A ressource. Actually an array of data frames (tibbles),
@@ -39,7 +42,7 @@ the different options, which were asked in these polls.}
 information could be retrieved (withheld tweets, suspended users, non-public
 tweets etc.)}
 }
-The different entities each have unique ids or keys by which they
+The different entitie´s each have unique ids or keys by which they
 are referenced. Additional tables have an parent_id key, by which these
 entries can be linked to their respective entity.
 }

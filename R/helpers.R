@@ -45,6 +45,8 @@ check_col <- function(.data, col) {
 
 #' @importFrom rlang .data
 #' @importFrom magrittr %>%
+#' @importFrom tidyselect all_of
+#' @importFrom tibble tibble
 make_tidyresusers <- function(.data) {
   # preventing R CMD check from complaining on global variables
 
@@ -52,12 +54,12 @@ make_tidyresusers <- function(.data) {
   entities_description_hashtags <- entities_description_cashtags <- NULL
   entities_description_mentions <- entities_description_urls <- NULL
   entities_url_urls <- public_metrics <- NULL
-
+  urls <- tibble()
   # remark to developer: it may possible to put the complicated if(check)
   # structure into check_col function...
   if(check_col(.data, "public_metrics")) .data <- .data %>%
       tweetbindcol(public_metrics) %>% dplyr::rename_with(~ paste0("user_", .x), dplyr::starts_with("public"))
-  .data <- .data %>% dplyr::rename(user_created_at = created_at)
+  .data <- .data %>% dplyr::rename(user_created_at = all_of(created_at))
 
   if(check_col(.data, "entities")) .data <- .data %>%
       tweetbindcol(entities)
@@ -115,6 +117,7 @@ return(.data)
 
 #' @importFrom rlang .data
 #' @importFrom magrittr %>%
+#' @importFrom tibble tibble
 make_tidyrestweets <- function(.data){
   public_metrics <- entities <- attachments <-
     geo <- geo_coordinates <-
@@ -123,7 +126,7 @@ make_tidyrestweets <- function(.data){
     entities_annotations <- entities_urls <-
     domain <- entity <-
     attachments_media_keys <- attachments_poll_ids <- NULL
-
+   referenced_tweets <- tibble()
   # postprocess tweet-data
   # bind attached data frames
   if(check_col(.data, "public_metrics")) .data <- .data %>%
