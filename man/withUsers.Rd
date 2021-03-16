@@ -4,7 +4,7 @@
 \alias{withUsers}
 \title{Add User Information to Tweet-Dataframe}
 \usage{
-withUsers(res, tweets, tz = "UTC")
+withUsers(res, tweets, tz = "UTC", allcols = FALSE)
 }
 \arguments{
 \item{res}{A resource, retrieved by \code{twitter_fas()}.}
@@ -12,6 +12,10 @@ withUsers(res, tweets, tz = "UTC")
 \item{tweets}{The tweets-dataframe, as returned by \code{getTweets()}}
 
 \item{tz}{The time zone, with which the \code{created at} columns should be formatted.}
+
+\item{allcols}{(logical) if TRUE, all columns will be added, resulting in a larger
+number of rows that get returned. If FALSE, only id, username, created_at and
+verfication status is returnded. Defaults to FALSE.}
 }
 \value{
 A data frame, actually with the length of the tweets-data, with user-information added.

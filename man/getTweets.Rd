@@ -9,7 +9,9 @@ getTweets(
   withUsers = TRUE,
   withRetweeted = TRUE,
   withMedia = TRUE,
-  tz = "UTC"
+  withPlaces = TRUE,
+  tz = "UTC",
+  ...
 )
 }
 \arguments{
@@ -24,7 +26,12 @@ or cited tweet.}
 \item{withMedia}{(Logical) if true, add information about media included
 within the tweet.}
 
+\item{withPlaces}{(Logical) if true, add geo-information  included
+within the tweet.}
+
 \item{tz}{Format dates with time zone}
+
+\item{...}{Any other option passed to helper functions like \code{withUsers}.}
 }
 \value{
 A Data Frame with Tweet data from Resource
