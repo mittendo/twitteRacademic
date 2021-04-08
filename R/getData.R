@@ -75,7 +75,7 @@ withUsers <- function(res, tweets, tz="UTC", allcols = FALSE){
   users <- res$includes_users$users
   users <- mutate(users,
                   user_created_at =
-                    as_datetime(user_created_at, tz=tz)) %>%
+                    as_datetime(created_at, tz=tz)) %>%
     distinct()
   if(allcols==FALSE) users <- users %>%
     select(id, username,  verified, user_created_at) %>%
